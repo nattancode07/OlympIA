@@ -1,4 +1,4 @@
-import { View, Text, Button, Image, StyleSheet } from 'react-native';
+import { View, Text, Button, Image, Pressable, StyleSheet } from 'react-native';
 import { useRouter } from 'expo-router';
 
 export default function Home() {
@@ -14,15 +14,14 @@ export default function Home() {
       <Text style={styles.title}>Bem-vindo ao OlympIA!</Text>
 
         <View style={styles.mainGrid}>
-          <View><Image style={styles.iconesHome} source={require('../assets/images/perfil.png')}/></View>
+          <Pressable onPress={() => router.push('/Chat')}><Image style={styles.iconesHome} source={require('../assets/images/chat.png')}/></Pressable>
+          <Pressable onPress={() => router.push('/Cadastro')}><Image style={styles.iconesHome} source={require('../assets/images/perfil.png')}/></Pressable>
           <View><Image style={styles.iconesHome} source={require('../assets/images/conquistas.png')}/></View>
           <View><Image style={styles.iconesHome} source={require('../assets/images/configuracoes.png')}/></View>
           <View><Image style={styles.iconesHome} source={require('../assets/images/calendario.png')}/></View>
-          <View><Image style={styles.iconesHome} source={require('../assets/images/chat.png')}/></View>
-          <View><Image style={styles.iconesHome} source={require('../assets/images/quiz.png')}/></View>
+          <View ><Image style={styles.iconesHome} source={require('../assets/images/quiz.png')}/></View>
         </View>
 
-      <Button title="Sair" onPress={handleLogout} />
     </View>
   );
 }
@@ -51,9 +50,9 @@ const styles = StyleSheet.create({
     justifyContent: 'center'
   },
   iconesHome: {
-    width: 120, // Aproximadamente 2 itens por linha com margem
+    width: 140, // Aproximadamente 2 itens por linha com margem
     margin: 8,
-    height: 120,
+    height: 140,
     borderRadius: 10,
     justifyContent: 'center',
     alignItems: 'center',
