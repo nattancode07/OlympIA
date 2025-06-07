@@ -36,17 +36,17 @@ const Chat = () => {
     setInput('');
 
     try {
-      const response = await fetch('http://<IP-DO-SERVIDOR>:<PORTA>/api/chat', {
+      const response = await fetch('https://2521-34-139-79-229.ngrok-free.app', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ message: input }),
+        body: JSON.stringify({ prompt: input }),
       });
 
       const data = await response.json();
 
       const aiMessage: Message = {
         id: Date.now().toString() + '-ai',
-        text: data.reply,
+        text: data.response,
         sender: 'ai',
       };
 
